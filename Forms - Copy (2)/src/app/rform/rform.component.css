@@ -1,0 +1,77 @@
+/* Стили для контейнера формы */
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #222;
+    border-radius: 10px;
+  }
+  
+  /* Стили для заголовков */
+  label {
+    color: #d3d3d3;
+  }
+  
+  /* Стили для инпутов и селекта */
+  input[type="text"],
+  input[type="password"],
+  select {
+    width: calc(100% - 20px); /* учитываем отступы */
+    padding: 10px;
+    margin: 6px 0;
+    border: none;
+    border-radius: 5px;
+    background-color: #444;
+    color: #d3d3d3;
+    box-sizing: border-box; /* учитываем padding в ширине */
+  }
+  
+  /* Стили для сообщений об ошибках */
+  p {
+    color: #ff6347;
+    font-size: 12px;
+    margin-top: 5px;
+  }
+  
+  /* Стили для кнопки */
+  button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #2f4f4f;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  /* Стили для отключенной кнопки */
+  button[disabled] {
+    background-color: #696969;
+    cursor: not-allowed;
+  }
+  
+  /* Стили для активного состояния инпутов */
+  .has-error input[type="text"],
+  .has-error input[type="password"],
+  .has-error select {
+    border: 2px solid #ff6347;
+  }
+  
+  /* Стили для сообщений об ошибках в активном состоянии */
+  .has-error p {
+    display: block;
+  }
+  
+  /* Стили для активной кнопки */
+  button:not([disabled]):hover {
+    background-color: #1e90ff;
+  }
+
+  fieldset {
+    border: none;
+  }
+  
+
+  
+  

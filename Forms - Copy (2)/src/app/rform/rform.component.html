@@ -1,0 +1,41 @@
+<div class="container">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <fieldset formGroupName="user">
+        <div class="form-group" [ngClass]="{'has-error': form.get('user.email')?.invalid && form.get('user.email')?.touched}">
+          <label>Email</label>
+          <input type="text" class="form-control" formControlName="email">
+          <p *ngIf="form.get('user.email')?.invalid && form.get('user.email')?.touched">Email не должен быть пустым и должен быть валидным</p>
+        </div>
+        <div class="form-group" [ngClass]="{'has-error': form.get('user.pass')?.invalid && form.get('user.pass')?.touched}">
+          <label>Пароль</label>
+          <input type="password" class="form-control" formControlName="pass">
+          <p *ngIf="form.get('user.pass')?.invalid && form.get('user.pass')?.touched">Пароль не должен быть пустым</p>
+        </div>
+        <div class="form-group" [ngClass]="{'has-error': form.get('user.phone')?.invalid && form.get('user.phone')?.touched}">
+          <label>Номер телефона</label>
+          <input type="text" class="form-control" formControlName="phone">
+          <p *ngIf="form.get('user.phone')?.invalid && form.get('user.phone')?.touched">Номер телефона не должен быть пустым</p>
+        </div>
+        <div class="form-group" [ngClass]="{'has-error': form.get('user.surname')?.invalid && form.get('user.surname')?.touched}">
+          <label>Surname</label>
+          <input type="text" class="form-control" formControlName="surname">
+          <p *ngIf="form.get('user.surname')?.invalid && form.get('user.surname')?.touched">Surname не должен быть пустым</p>
+        </div>
+        <div class="form-group" [ngClass]="{'has-error': form.get('user.name')?.invalid && form.get('user.name')?.touched}">
+          <label>Name</label>
+          <input type="text" class="form-control" formControlName="name">
+          <p *ngIf="form.get('user.name')?.invalid && form.get('user.name')?.touched">Name не должен быть пустым</p>
+        </div>
+        <div class="form-group" [ngClass]="{'has-error': form.get('user.gender')?.invalid && form.get('user.gender')?.touched}">
+          <label>Gender</label>
+          <select class="form-control" formControlName="gender">
+            <option value="">Select</option>
+            <option *ngFor="let gender of genders" [value]="gender">{{gender}}</option>
+          </select>
+          <p *ngIf="form.get('user.gender')?.invalid && form.get('user.gender')?.touched">Gender не должен быть пустым</p>
+        </div>
+      </fieldset>
+      <button class="btn btn-success" type="submit" [disabled]="form.invalid">Сохранить</button>
+    </form>
+  </div>
+  

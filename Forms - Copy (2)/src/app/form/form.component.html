@@ -1,0 +1,50 @@
+<div class="container">
+  <form (ngSubmit)="submitForm(loginForm)" #loginForm="ngForm">
+    <div class="form-group" [ngClass]="{'has-error': email.invalid && email.touched}">
+      <label for="email">Email</label>
+      <input 
+        type="email"
+        id="email"
+        class="form-control" 
+        ngModel
+        #email="ngModel"
+        name="email"
+        email
+        required>
+      <p *ngIf="email.invalid && email.touched" class="text-danger">Please enter a valid email</p>
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input 
+        type="password"
+        id="pass"
+        class="form-control"
+        ngModel
+        #pass="ngModel"
+        name="pass" 
+        pattern="\w{8,16}"
+        required>
+      <p *ngIf="pass.invalid && pass.touched" class="text-danger">Password has to be at least 8-16 symbols</p>
+    </div>
+
+    <div class="form-group">
+      <label for="confirmPass">Confirm Password</label>
+      <input 
+        type="password"
+        id="confirmPass"
+        class="form-control"
+        ngModel
+        #confirmPass="ngModel"
+        name="confirmPass" 
+        pattern="\w{4,16}"
+        required>
+      <p *ngIf="confirmPass.value !== pass.value && confirmPass.value && confirmPass.touched" class="text-danger">Passwords do not match</p>
+    </div>
+
+    <button 
+    class="btn btn-primary" 
+    type="submit"
+    [disabled]="loginForm.invalid || confirmPass.value !== pass.value">Login</button>
+  </form>
+</div>
